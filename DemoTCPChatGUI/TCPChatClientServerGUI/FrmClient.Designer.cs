@@ -166,9 +166,9 @@
             this.ClientLangLabel.Location = new System.Drawing.Point(475, 280);
             this.ClientLangLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ClientLangLabel.Name = "ClientLangLabel";
-            this.ClientLangLabel.Size = new System.Drawing.Size(87, 25);
+            this.ClientLangLabel.Size = new System.Drawing.Size(106, 25);
             this.ClientLangLabel.TabIndex = 18;
-            this.ClientLangLabel.Text = "Convert:";
+            this.ClientLangLabel.Text = "Langauge:";
             // 
             // ClientLangComboBox
             // 
@@ -180,9 +180,9 @@
             "Lao",
             "Chinese",
             "Japanese"});
-            this.ClientLangComboBox.Location = new System.Drawing.Point(569, 277);
+            this.ClientLangComboBox.Location = new System.Drawing.Point(588, 277);
             this.ClientLangComboBox.Name = "ClientLangComboBox";
-            this.ClientLangComboBox.Size = new System.Drawing.Size(229, 33);
+            this.ClientLangComboBox.Size = new System.Drawing.Size(210, 33);
             this.ClientLangComboBox.TabIndex = 17;
             this.ClientLangComboBox.SelectedIndexChanged += new System.EventHandler(this.ClientLangComboBox_SelectedIndexChanged);
             // 

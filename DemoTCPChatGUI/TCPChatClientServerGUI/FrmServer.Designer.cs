@@ -150,9 +150,9 @@
             "Lao",
             "Chinese",
             "Japanese"});
-            this.SeverLangComboBox.Location = new System.Drawing.Point(575, 234);
+            this.SeverLangComboBox.Location = new System.Drawing.Point(594, 234);
             this.SeverLangComboBox.Name = "SeverLangComboBox";
-            this.SeverLangComboBox.Size = new System.Drawing.Size(229, 33);
+            this.SeverLangComboBox.Size = new System.Drawing.Size(210, 33);
             this.SeverLangComboBox.TabIndex = 15;
             this.SeverLangComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -162,9 +162,9 @@
             this.SeverLangLabel.Location = new System.Drawing.Point(481, 237);
             this.SeverLangLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SeverLangLabel.Name = "SeverLangLabel";
-            this.SeverLangLabel.Size = new System.Drawing.Size(87, 25);
+            this.SeverLangLabel.Size = new System.Drawing.Size(106, 25);
             this.SeverLangLabel.TabIndex = 16;
-            this.SeverLangLabel.Text = "Convert:";
+            this.SeverLangLabel.Text = "Langauge:";
             // 
             // FrmServer
             // 

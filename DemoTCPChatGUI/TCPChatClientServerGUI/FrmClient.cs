@@ -23,14 +23,17 @@ namespace TCPChatClientServerGUI
         }
 
         Socket sckClient;
-        string lang_first = "auto" ;
-        string lang_second = "auto" ;
+        string lang_first = "auto";
+        string lang_second;
+
+        public bool IsTrans2 = false;
 
         public string TranslateText(string input)
         {
             string url = String.Format
             ("https://translate.googleapis.com/translate_a/single?client=gtx&sl={0}&tl={1}&dt=t&q={2}",
              lang_first, lang_second, Uri.EscapeUriString(input));
+            
             HttpClient httpClient = new HttpClient();
             string result = httpClient.GetStringAsync(url).Result;
             var jsonData = new JavaScriptSerializer().Deserialize<List<dynamic>>(result);
@@ -62,17 +65,65 @@ namespace TCPChatClientServerGUI
             //cap nhat trang thai
             lbTrangThai.Invoke(new CapNhatGiaoDien(CapNhatTrangThai), new object[] { "Ket noi thanh cong." });
             //Bat dau nhan du lieu
-            sckClient.BeginReceive(data, 0, 1024, SocketFlags.None, new AsyncCallback(xulydulieunhanduoc), null);
+            if (IsTrans2 == false)
+            {
+                sckClient.BeginReceive(data, 0, 1024, SocketFlags.None, new AsyncCallback(xulyLang), null);
+                //IsTrans2 = true;
+            }
+            else
+            {
+                sckClient.BeginReceive(data, 0, 1024, SocketFlags.None, new AsyncCallback(xulydulieunhanduoc), null);
+            }
         }
         //Khai bao bo dem de nhan du lieu
         byte[] data = new byte[1024];
+        void xulyLang(IAsyncResult result)
+        {
+            //Goi ham EndReceive
+            int size = sckClient.EndReceive(result);
+            //Xu ly du lieu nhan duoc trong data[]
+            String thongdiep = Encoding.Unicode.GetString(data, 0, size);
+            if (thongdiep == "English")
+            {
+                //lang_second = "en";
+                lang_first = "en";
+            }
+            if (thongdiep == "French")
+            {
+                //lang_second = "fr";
+                lang_first = "fr";
+            }
+            if (thongdiep == "Vietnamese")
+            {
+                //lang_second = "vi";
+                lang_first = "vi";
+            }
+            if (thongdiep == "Lao")
+            {
+                //lang_second = "lo";
+                lang_first = "lo";
+            }
+            if (thongdiep == "Chinese")
+            {
+                //lang_second = "zh-tw";
+                lang_first = "zh-tw";
+            }
+            if (thongdiep == "Japanese")
+            {
+                //lang_second = "ja";
+                lang_first = "ja";
+            }
+            //Cho nhan tiep
+            sckClient.BeginReceive(data, 0, 1024, SocketFlags.None, new AsyncCallback(xulydulieunhanduoc), null);
+        }
+
         void xulydulieunhanduoc(IAsyncResult result)
         {
             //Goi ham EndReceive
             int size = sckClient.EndReceive(result);
             //Xu ly du lieu nhan duoc trong data[]
-            //String thongdiep = Encoding.ASCII.GetString(data, 0, size);
             String thongdiep = Encoding.Unicode.GetString(data, 0, size);
+            thongdiep = TranslateText(thongdiep);
             //Chen thong diep vao textbox noidungchat
             txtNoidungChat.Invoke(new CapNhatGiaoDien(CapNhatNoiDungChat), new object[] { "Server: " + thongdiep });
             //Cho nhan tiep
@@ -91,7 +142,7 @@ namespace TCPChatClientServerGUI
         private void butGui_Click(object sender, EventArgs e)
         {
             CapNhatNoiDungChat("Client: " + txtThongdiep.Text);
-            txtThongdiep.Text = TranslateText(txtThongdiep.Text);
+            //txtThongdiep.Text = TranslateText(txtThongdiep.Text);
             //sckClient.Send(Encoding.ASCII.GetBytes(txtThongdiep.Text));
             sckClient.Send(Encoding.Unicode.GetBytes(txtThongdiep.Text));
             txtThongdiep.Text = "";
@@ -110,27 +161,45 @@ namespace TCPChatClientServerGUI
         {
             if (ClientLangComboBox.Text == "English")
             {
+                IsTrans2 = true;
                 lang_second = "en";
+                sckClient.Send(Encoding.Unicode.GetBytes(ClientLangComboBox.Text));
+                MessageBox.Show("You chose " + ClientLangComboBox.Text);
             }
             if (ClientLangComboBox.Text == "French")
             {
+                IsTrans2 = true;
                 lang_second = "fr";
+                sckClient.Send(Encoding.Unicode.GetBytes(ClientLangComboBox.Text));
+                MessageBox.Show("You chose " + ClientLangComboBox.Text);
             }
             if (ClientLangComboBox.Text == "Vietnamese")
             {
+                IsTrans2 = true;
                 lang_second = "vi";
+                sckClient.Send(Encoding.Unicode.GetBytes(ClientLangComboBox.Text));
+                MessageBox.Show("You chose " + ClientLangComboBox.Text);
             }
             if (ClientLangComboBox.Text == "Lao")
             {
+                IsTrans2 = true;
                 lang_second = "lo";
+                sckClient.Send(Encoding.Unicode.GetBytes(ClientLangComboBox.Text));
+                MessageBox.Show("You chose " + ClientLangComboBox.Text);
             }
             if (ClientLangComboBox.Text == "Chinese")
             {
+                IsTrans2 = true;
                 lang_second = "zh-tw";
+                sckClient.Send(Encoding.Unicode.GetBytes(ClientLangComboBox.Text));
+                MessageBox.Show("You chose " + ClientLangComboBox.Text);
             }
             if (ClientLangComboBox.Text == "Japanese")
             {
+                IsTrans2 = true;
                 lang_second = "ja";
+                sckClient.Send(Encoding.Unicode.GetBytes(ClientLangComboBox.Text));
+                MessageBox.Show("You chose " + ClientLangComboBox.Text);
             }
         }
     }
