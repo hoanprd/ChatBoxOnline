@@ -1,0 +1,23 @@
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\bin\Debug\TCPChatClientServerGUI.exe.config
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\bin\Debug\TCPChatClientServerGUI.exe
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\bin\Debug\TCPChatClientServerGUI.pdb
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.Form1.resources
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.Properties.Resources.resources
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.csproj.GenerateResource.Cache
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.exe
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.pdb
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.csprojResolveAssemblyReference.cache
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.FrmClient.resources
+G:\Lap trinh mang -v2\Demo\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.FrmServer.resources
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\bin\Debug\TCPChatClientServerGUI.exe.config
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\bin\Debug\TCPChatClientServerGUI.exe
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\bin\Debug\TCPChatClientServerGUI.pdb
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.csproj.AssemblyReference.cache
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.Form1.resources
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.FrmClient.resources
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.FrmServer.resources
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.Properties.Resources.resources
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.csproj.GenerateResource.cache
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.csproj.CoreCompileInputs.cache
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.exe
+E:\C# project\DemoTCPChatGUI\TCPChatClientServerGUI\obj\Debug\TCPChatClientServerGUI.pdb
