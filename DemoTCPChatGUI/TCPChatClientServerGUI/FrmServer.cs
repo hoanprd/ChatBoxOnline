@@ -28,9 +28,7 @@ namespace TCPChatClientServerGUI
         //sckClient: truyen nhan du lieu voi client
 
         string lang_first = "auto";
-        string lang_second;
-        
-        bool IsTrans = false;
+        string lang_second = "auto";
 
         public string TranslateText(string input)
         {
@@ -72,57 +70,11 @@ namespace TCPChatClientServerGUI
             //cap nhat trang thai
             lbTrangThai.Invoke(new CapNhatGiaoDien(CapNhatTrangThai), new object[] { "Ket noi thanh cong." });
             //Bat dau nhan du lieu
-            if (IsTrans == false)
-            {
-                sckClient.BeginReceive(data, 0, 1024, SocketFlags.None, new AsyncCallback(xulyLang), null);
-                //IsTrans = true;
-            }
-            else
-            {
-                sckClient.BeginReceive(data, 0, 1024, SocketFlags.None, new AsyncCallback(xulydulieunhanduoc), null);
-            }
-        }
-        //Khai bao bo dem de nhan du lieu
-        byte[] data = new byte[1024];
-        void xulyLang(IAsyncResult result)
-        {
-            //Goi ham EndReceive
-            int size = sckClient.EndReceive(result);
-            //Xu ly du lieu nhan duoc trong data[]
-            String thongdiep = Encoding.Unicode.GetString(data, 0, size);
-            if (thongdiep == "English")
-            {
-                //lang_second = "en";
-                lang_first = "en";
-            }
-            if (thongdiep == "French")
-            {
-                //lang_second = "fr";
-                lang_first = "fr";
-            }
-            if (thongdiep == "Vietnamese")
-            {
-                //lang_second = "vi";
-                lang_first = "vi";
-            }
-            if (thongdiep == "Lao")
-            {
-                //lang_second = "lo";
-                lang_first = "lo";
-            }
-            if (thongdiep == "Chinese")
-            {
-                //lang_second = "zh-tw";
-                lang_first = "zh-tw";
-            }
-            if (thongdiep == "Japanese")
-            {
-                //lang_second = "ja";
-                lang_first = "ja";
-            }
-            //Cho nhan tiep
             sckClient.BeginReceive(data, 0, 1024, SocketFlags.None, new AsyncCallback(xulydulieunhanduoc), null);
         }
+
+        //Khai bao bo dem de nhan du lieu
+        byte[] data = new byte[1024];
 
         void xulydulieunhanduoc(IAsyncResult result)
         {
@@ -130,7 +82,30 @@ namespace TCPChatClientServerGUI
             int size = sckClient.EndReceive(result);
             //Xu ly du lieu nhan duoc trong data[]
             String thongdiep = Encoding.Unicode.GetString(data, 0, size);
-
+            if (thongdiep == "English")
+            {
+                lang_first = "en";
+            }
+            if (thongdiep == "French")
+            {
+                lang_first = "fr";
+            }
+            if (thongdiep == "Vietnamese")
+            {
+                lang_first = "vi";
+            }
+            if (thongdiep == "Lao")
+            {
+                lang_first = "lo";
+            }
+            if (thongdiep == "Chinese")
+            {
+                lang_first = "zh-tw";
+            }
+            if (thongdiep == "Japanese")
+            {
+                lang_first = "ja";
+            }
             thongdiep = TranslateText(thongdiep);
             //Chen thong diep vao textbox noidungchat
             txtNoidungChat.Invoke(new CapNhatGiaoDien(CapNhatNoiDungChat), new object[] { "Client: " + thongdiep });
@@ -161,42 +136,36 @@ namespace TCPChatClientServerGUI
         {
             if (SeverLangComboBox.Text == "English")
             {
-                IsTrans = true;
                 lang_second = "en";
                 sckClient.Send(Encoding.Unicode.GetBytes(SeverLangComboBox.Text));
                 MessageBox.Show("You chose " + SeverLangComboBox.Text);
             }
             if (SeverLangComboBox.Text == "French")
             {
-                IsTrans = true;
                 lang_second = "fr";
                 sckClient.Send(Encoding.Unicode.GetBytes(SeverLangComboBox.Text));
                 MessageBox.Show("You chose " + SeverLangComboBox.Text);
             }
             if (SeverLangComboBox.Text == "Vietnamese")
             {
-                IsTrans = true;
                 lang_second = "vi";
                 sckClient.Send(Encoding.Unicode.GetBytes(SeverLangComboBox.Text));
                 MessageBox.Show("You chose " + SeverLangComboBox.Text);
             }
             if (SeverLangComboBox.Text == "Lao")
             {
-                IsTrans = true;
                 lang_second = "lo";
                 sckClient.Send(Encoding.Unicode.GetBytes(SeverLangComboBox.Text));
                 MessageBox.Show("You chose " + SeverLangComboBox.Text);
             }
             if (SeverLangComboBox.Text == "Chinese")
             {
-                IsTrans = true;
                 lang_second = "zh-tw";
                 sckClient.Send(Encoding.Unicode.GetBytes(SeverLangComboBox.Text));
                 MessageBox.Show("You chose " + SeverLangComboBox.Text);
             }
             if (SeverLangComboBox.Text == "Japanese")
             {
-                IsTrans = true;
                 lang_second = "ja";
                 sckClient.Send(Encoding.Unicode.GetBytes(SeverLangComboBox.Text));
                 MessageBox.Show("You chose " + SeverLangComboBox.Text);
